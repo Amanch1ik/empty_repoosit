@@ -1,67 +1,85 @@
-# БОНУСНАЯ СИСТЕМА ЛОЯЛЬНОСТИ
+# 🌟 Bonus APP
 
-## 👨‍💻 Об авторе
-**Имя:** Аманбол Айтбеков
-- **Telegram:** [@amanchi1ikk](https://t.me/amanchi1ikk)
-- **Телефон:** +996 551 697 296
+## 📝 Описание проекта
 
-## 📱 О проекте
-Инновационная платформа лояльности с расширенными возможностями для управления бонусами и партнерскими программами.
+Bonus APP - это современное мобильное приложение для управления бонусами и лояльностью, разработанное с использованием React Native и FastAPI.
 
-## 🛠 Технологии
-### Фронтенд
-- React с TypeScript
-- Vite
-- Управление состоянием
-- Техники оптимизации производительности
-- Адаптивный дизайн
+## 🚀 Основные возможности
 
-### Бэкенд
-- Python
+- 🔐 Secure Authentication
+- 💳 Управление бонусными картами
+- 📊 Аналитика и статистика бонусов
+- 🤝 Интеграция с партнерскими программами
+
+## 🛠 Технологический стек
+
+### Frontend
+- React Native
+- Expo
+- Zustand (State Management)
+- TypeScript
+
+### Backend
 - FastAPI
 - SQLAlchemy
-- Alembic для миграций базы данных
+- Alembic
+- Pydantic
 
-## 🚀 Функциональность
-- Аутентификация пользователей
-- Управление бонусными картами
-- Система партнерских вознаграждений
-- Мониторинг производительности
-- Обработка ошибок
-- Защищенные API-эндпоинты
+## 🔧 Установка и настройка
 
-## 🔧 Prerequisites
+### Prerequisites
 - Node.js (v16+)
-- npm или Yarn
 - Python (v3.9+)
-- pip
+- npm или yarn
+- PostgreSQL
 
-## 🖥 Локальная разработка
+### Клонирование репозитория
+```bash
+git clone https://github.com/Amanch1ik/bonus---APP.git
+cd bonus---APP
+```
 
-### Настройка фронтенда
+### Установка зависимостей
+
+#### Frontend
 ```bash
 cd frontend
 npm install
-npm run dev
 ```
 
-### Настройка бэкенда
+#### Backend
+```bash
+cd ../yess-backend
+pip install -r requirements.txt
+```
+
+## 🚀 Запуск приложения
+
+### Frontend
+```bash
+cd frontend
+npm start
+```
+
+### Backend
 ```bash
 cd yess-backend
-python -m venv venv
-source venv/bin/activate  # Для Windows используйте `venv\Scripts\activate`
-pip install -r requirements.txt
-alembic upgrade head
 uvicorn app.main:app --reload
 ```
 
-## 🚢 Развертывание
-- Фронтенд: Настроен для сборки Vite
-- Бэкенд: Готов к развертыванию с помощью Docker
-- CI/CD: Включены workflows GitHub Actions
-
 ## 🤝 Contributing
-Пожалуйста, ознакомьтесь с [CONTRIBUTING.md](CONTRIBUTING.md) для получения информации о процессе внесения изменений и правилах участия в проекте.
 
-## 📜 Лицензия
-Проект лицензирован под MIT License.
+Пожалуйста, прочитайте [CONTRIBUTING.md](CONTRIBUTING.md) для деталей о нашем кодексе поведения и процессе подачи pull-реквестов.
+
+## 📄 Лицензия
+
+Этот проект лицензирован под MIT License - см. [LICENSE.md](LICENSE.md)
+
+## 📞 Контакты
+
+- **Автор**: Amanch1ik
+- **Email**: aman4ikaitbekov@icloud.com
+
+---
+
+🌈 Создано с ❤️ и 🔥
