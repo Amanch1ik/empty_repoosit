@@ -1,78 +1,44 @@
-# Node.js
+# Dependency directories
 node_modules/
-npm-debug.log
-yarn-error.log
-
-# Frontend build
-frontend/dist/
-frontend/build/
-
-# Backend
-yess-backend/__pycache__/
-yess-backend/*.pyc
-yess-backend/*.pyo
-yess-backend/*.pyd
-yess-backend/.Python
-yess-backend/env/
-yess-backend/venv/
-yess-backend/pip-log.txt
-yess-backend/pip-delete-this-directory.txt
-
-# Database
-*.sqlite3
-*.db
+*.egg-info/
+__pycache__/
 
 # Environment files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+*.env
+*.env.local
+*.env.development
+*.env.production
 
-# IDE and Editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Build outputs
+dist/
+build/
+out/
 
 # Logs
 logs/
 *.log
 
-# Dependency directories
-jspm_packages/
+# IDE and Editor folders
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# Optional npm cache directory
-.npm
+# OS generated files
+.DS_Store
+Thumbs.db
 
-# Optional eslint cache
-.eslintcache
+# Frontend specific
+frontend/coverage/
+frontend/.pnp/
+frontend/.pnp.js
 
-# Optional REPL history
-.node_repl_history
+# Backend specific
+yess-backend/uploads/
+yess-backend/*.db
+yess-backend/alembic/versions/
 
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# dotenv environment variables file
-.env.test
-
-# Temporary files
-tmp/
-temp/
-
-# Uploads
-uploads/
+# Misc
+.cache/
+*.tmp
+*.bak

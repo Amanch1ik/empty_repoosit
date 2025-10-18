@@ -81,5 +81,4 @@ uvicorn app.main:app --reload
 - **Email**: aman4ikaitbekov@icloud.com
 
 ---
-
-🌈 Создано с ❤️ и 🔥
+ Создано с ❤️ и 🔥
