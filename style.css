@@ -1,0 +1,682 @@
+/* ==========================================
+   СОВРЕМЕННЫЕ ВЕБ-ТЕХНОЛОГИИ — CSS СТИЛИ
+   Задание 6: Подключение CSS
+   ========================================== */
+
+/* Подключение шрифта */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Сброс стилей */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== ОСНОВНЫЕ ПЕРЕМЕННЫЕ ===== */
+:root {
+  --bg-primary: #0a0f1e;
+  --bg-secondary: #111827;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --bg-card-hover: rgba(255, 255, 255, 0.1);
+  --accent-cyan: #00d4ff;
+  --accent-purple: #7b2ff7;
+  --accent-pink: #f72fff;
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0aec0;
+  --text-muted: #636e80;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --gradient-main: linear-gradient(135deg, #00d4ff, #7b2ff7);
+  --gradient-bg: linear-gradient(180deg, #0a0f1e 0%, #1a1035 50%, #0a0f1e 100%);
+  --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== BODY ===== */
+body {
+  font-family:
+    "Inter",
+    -apple-system,
+    sans-serif;
+  background: var(--gradient-bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.7;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Фоновые декоративные элементы */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(123, 47, 247, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(0, 212, 255, 0.06) 0%,
+      transparent 50%
+    );
+  z-index: -1;
+  animation: bgFloat 20s ease-in-out infinite;
+}
+
+@keyframes bgFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(2%, -1%) rotate(1deg);
+  }
+  66% {
+    transform: translate(-1%, 1%) rotate(-1deg);
+  }
+}
+
+/* ===== НАВИГАЦИЯ ===== */
+/* Задание 7: Связанные страницы */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 15, 30, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 0 2rem;
+  transition: var(--transition);
+}
+
+.navbar .nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  transition: var(--transition);
+}
+
+.navbar .logo:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+}
+
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.navbar .nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
+
+.navbar .nav-links a:hover {
+  color: var(--text-primary);
+  background: var(--bg-card);
+}
+
+.navbar .nav-links a.active {
+  color: var(--accent-cyan);
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.navbar .nav-links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--accent-cyan);
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+/* ===== ОСНОВНОЙ КОНТЕЙНЕР ===== */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 2rem 3rem;
+}
+
+/* ===== HERO СЕКЦИЯ ===== */
+.hero {
+  text-align: center;
+  padding: 4rem 0 3rem;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 212, 255, 0.1) 0%,
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+/* Задание 2: Форматирование (заголовки h1-h3 стилизованы) */
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #7b2ff7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.2rem;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 10px rgba(0, 212, 255, 0));
+  }
+  100% {
+    filter: brightness(1.1) drop-shadow(0 0 30px rgba(0, 212, 255, 0.3));
+  }
+}
+
+.hero .subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+}
+
+/* ===== КАРТОЧКИ ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-main);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  background: var(--bg-card-hover);
+  border-color: rgba(0, 212, 255, 0.2);
+  box-shadow: var(--shadow-glow);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  color: var(--text-primary);
+}
+
+.card p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ===== СЕКЦИИ ===== */
+.section {
+  margin: 4rem 0;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.section h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.section p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* ===== ФОРМАТИРОВАННЫЙ ТЕКСТ ===== */
+/* Задание 2: b, i, u стили */
+b,
+strong {
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+i,
+em {
+  color: var(--text-primary);
+  font-style: italic;
+  opacity: 0.9;
+}
+
+u {
+  text-decoration: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(123, 47, 247, 0.3) 60%
+  );
+  padding: 0 2px;
+}
+
+/* ===== СПИСКИ ===== */
+/* Задание 3: Нумерованный и маркированный списки */
+.styled-list {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 2rem 2rem 2rem 2.5rem;
+  margin: 1.5rem 0;
+  backdrop-filter: blur(10px);
+}
+
+.styled-list li {
+  padding: 0.6rem 0 0.6rem 0.5rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  transition: var(--transition);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.styled-list li:last-child {
+  border-bottom: none;
+}
+
+.styled-list li:hover {
+  color: var(--text-primary);
+  padding-left: 1rem;
+}
+
+ol.styled-list {
+  counter-reset: custom-counter;
+  list-style: none;
+  padding-left: 2rem;
+}
+
+ol.styled-list li {
+  counter-increment: custom-counter;
+  position: relative;
+}
+
+ol.styled-list li::before {
+  content: counter(custom-counter, decimal-leading-zero);
+  position: absolute;
+  left: -2.5rem;
+  top: 0.6rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  opacity: 0.8;
+}
+
+ul.styled-list {
+  list-style: none;
+  padding-left: 2rem;
+}
+
+ul.styled-list li::before {
+  content: "▹";
+  position: absolute;
+  left: -1.5rem;
+  color: var(--accent-purple);
+  font-size: 1.1rem;
+}
+
+ul.styled-list li {
+  position: relative;
+}
+
+/* ===== ТАБЛИЦА ===== */
+/* Задание 4: HTML-таблица */
+.styled-table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  margin: 1.5rem 0;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--glass-bg);
+}
+
+.styled-table thead {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.15),
+    rgba(123, 47, 247, 0.15)
+  );
+}
+
+.styled-table th {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--accent-cyan);
+  border-bottom: 2px solid var(--glass-border);
+}
+
+.styled-table td {
+  padding: 0.9rem 1.2rem;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.styled-table tbody tr {
+  transition: var(--transition);
+}
+
+.styled-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.styled-table tbody tr:hover {
+  background: rgba(0, 212, 255, 0.06);
+}
+
+.styled-table tbody tr:hover td {
+  color: var(--text-primary);
+}
+
+/* Бейдж (тег) */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.badge-frontend {
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.badge-backend {
+  background: rgba(123, 47, 247, 0.15);
+  color: #a78bfa;
+  border: 1px solid rgba(123, 47, 247, 0.3);
+}
+
+.badge-fullstack {
+  background: rgba(247, 47, 255, 0.12);
+  color: #f0abfc;
+  border: 1px solid rgba(247, 47, 255, 0.3);
+}
+
+/* ===== ИЗОБРАЖЕНИЕ ===== */
+/* Задание 5: Изображение и ссылка */
+.image-section {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.image-section img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: var(--transition);
+}
+
+.image-section img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 80px rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.image-caption {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ===== ССЫЛКИ-КАРТОЧКИ ===== */
+.link-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+
+.link-card {
+  display: block;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.link-card::after {
+  content: "→";
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.link-card:hover {
+  transform: translateY(-4px);
+  background: var(--bg-card-hover);
+  border-color: rgba(0, 212, 255, 0.2);
+  box-shadow: var(--shadow-glow);
+}
+
+.link-card:hover::after {
+  color: var(--accent-cyan);
+  transform: translateX(4px);
+}
+
+.link-card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.link-card h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.link-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  margin-top: 4rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.footer span {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+/* ===== SCROLL АНИМАЦИИ ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== АДАПТИВНЫЙ ДИЗАЙН ===== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1rem;
+  }
+
+  .navbar .nav-container {
+    height: 60px;
+  }
+
+  .navbar .nav-links a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.82rem;
+  }
+
+  .main-content {
+    padding: 80px 1rem 2rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section h2 {
+    font-size: 1.6rem;
+  }
+
+  .styled-list {
+    padding: 1.2rem 1.2rem 1.2rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .navbar .logo {
+    font-size: 1.2rem;
+  }
+
+  .link-cards {
+    grid-template-columns: 1fr;
+  }
+}
